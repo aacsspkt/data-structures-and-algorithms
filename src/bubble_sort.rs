@@ -1,6 +1,8 @@
+
 use std::fmt::Debug;
 
 // O(n2)
+#[allow(dead_code)]
 pub fn bubble_sort<T: PartialOrd + Debug>(v: &mut [T]) {
     for i in 0..v.len() {
         println!("{:?}", v);
