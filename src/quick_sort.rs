@@ -1,6 +1,6 @@
 
 #[allow(dead_code)]
-pub fn quick_sort<T: PartialOrd + Clone>(array: &mut [T]) {
+pub fn quick_sort<T: PartialOrd>(array: &mut [T]) {
     if array.is_empty() {
         return;
     }
@@ -12,15 +12,14 @@ pub fn quick_sort<T: PartialOrd + Clone>(array: &mut [T]) {
     quick_sort(&mut array[pivot + 1..len]);
 }
 
-fn partition<T: PartialOrd + Clone>(array: &mut [T]) -> usize {
+fn partition<T: PartialOrd>(array: &mut [T]) -> usize {
     let len = array.len();
-    let pivot = array[len - 1].clone();
 
     let mut i = 0;
     let mut j = 0;
 
     while j < len - 1 {
-        if array[j] <= pivot {
+        if array[j] <= array[len - 1] {
             array.swap(i, j);
             i += 1;
         }
